@@ -325,7 +325,6 @@
       <div class="plans">
         <div class="plan">
           <h3>方案一：Pure AIPO</h3>
-          <p class="price">歡迎洽詢</p>
           <ul>
             <li>AIO / AI 能見度稽核</li>
             <li>10–20 組核心 FAQ 與查詢群組規劃</li>
@@ -337,7 +336,6 @@
 
         <div class="plan">
           <h3>方案二：On-going AIPO</h3>
-          <p class="price">月費制</p>
           <ul>
             <li>持續 6–12 個月 AI 搜尋優化</li>
             <li>20–40 組 FAQ / 查詢群組擴展</li>
@@ -349,7 +347,6 @@
 
         <div class="plan">
           <h3>方案三：SEO + AIPO</h3>
-          <p class="price">客製報價</p>
           <ul>
             <li>完整 SEO + AIPO 雙軌策略</li>
             <li>Topic Cluster 建構與舊內容重寫</li>
@@ -361,7 +358,6 @@
 
         <div class="plan">
           <h3>方案四：SEO + AIPO + UMOT</h3>
-          <p class="price">客製報價</p>
           <ul>
             <li>從 Zero Moment 到 Ultimate Moment 全漏斗布局</li>
             <li>社群聲量與公共關注議題監測</li>
