@@ -1290,8 +1290,8 @@
           <p>全球首創「AI 能見度分數」：用一個分數看清你在 AI 搜尋世界中的位置。</p>
           <p class="body-muted"><strong>分數來源：</strong></p>
           <ul class="module-list">
-            <li>AI 引用率（%。）。</li>
-            <li>AIO 出現機會（%。）。</li>
+            <li>AI 引用率（%）。</li>
+            <li>AIO 出現機會（%）。</li>
             <li>Query Coverage（查詢覆蓋度）。</li>
             <li>Schema 健康度與錯誤狀況。</li>
             <li>競爭對手比較與行業 Benchmark（百分位）。</li>
