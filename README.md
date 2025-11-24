@@ -1,449 +1,356 @@
-# YF AIPO testing-2 
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
+  <title>YouFind AIPO｜Search Visibility Cloud & AI SEO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YouFind AI SEO 平台</title>
-  <style>
-    /* Reset 與基礎樣式 */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
-        "Microsoft JhengHei", sans-serif;
-      background-color: #ffffff;
-      color: #000000;
-      line-height: 1.6;
-    }
-    a {
-      color: #000000;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Header 與導覽列 */
-    header {
-      background: #000000;
-      color: #ffffff;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-weight: bold;
-      font-size: 1.4rem;
-      letter-spacing: 2px;
-      cursor: default;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav ul li a {
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.5rem 0;
-      display: inline-block;
-    }
-
-    /* 手機版漢堡選單 */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-    .menu-toggle span {
-      width: 24px;
-      height: 3px;
-      background: #ffffff;
-      display: block;
-      border-radius: 1px;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: #000000;
-        width: 220px;
-        flex-direction: column;
-        border-radius: 4px;
-        display: none;
-        padding: 1rem;
-      }
-      nav ul.show {
-        display: flex;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-    }
-
-    /* 主內容區 */
-    main {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 4rem;
-    }
-    h1, h2, h3 {
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-    h1 {
-      font-size: 2.2rem;
-      letter-spacing: 2px;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    h2 {
-      font-size: 1.8rem;
-      border-bottom: 2px solid #000000;
-      padding-bottom: 0.4rem;
-    }
-    h3 {
-      font-size: 1.2rem;
-    }
-    p {
-      margin: 0.6rem 0 1.2rem;
-      font-size: 1rem;
-    }
-
-    /* 影片與圖片容器 */
-    .video-container,
-    .image-container {
-      max-width: 100%;
-      margin: 1rem 0;
-      text-align: center;
-    }
-    iframe, img {
-      max-width: 100%;
-      height: auto;
-      border: none;
-    }
-
-    /* 方案區塊 */
-    .plans {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .plan {
-      border: 1px solid #000000;
-      border-radius: 6px;
-      padding: 1.5rem;
-      width: 280px;
-      background: #f8f8f8;
-      color: #000000;
-      text-align: center;
-      transition: box-shadow 0.3s ease;
-    }
-    .plan:hover {
-      box-shadow: 0 0 10px #000000;
-    }
-    .plan h3 {
-      margin-bottom: 0.5rem;
-    }
-    .plan p.price {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .plan ul {
-      list-style: none;
-      margin-bottom: 1rem;
-      text-align: left;
-    }
-    .plan ul li {
-      padding: 0.3rem 0;
-      border-bottom: 1px solid #dddddd;
-      font-size: 0.95rem;
-    }
-    .plan button {
-      background: #000000;
-      color: #ffffff;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      cursor: pointer;
-      border-radius: 4px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-    .plan button:hover {
-      background: #444444;
-    }
-
-    /* Blog 區塊 */
-    .blog-posts {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .post {
-      border: 1px solid #000000;
-      padding: 1rem;
-      border-radius: 4px;
-      background: #f8f8f8;
-      color: #000000;
-    }
-    .post h3 {
-      margin-bottom: 0.8rem;
-    }
-
-    /* Footer */
-    footer {
-      background: #000000;
-      color: #ffffff;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      margin-top: 4rem;
-    }
-    footer a {
-      color: #ffffff;
-      text-decoration: underline;
-      font-weight: 600;
-    }
-  </style>
+  <meta name="description" content="YouFind AIPO Search Visibility Cloud：以 AI 驅動的 SEO、AIPO 產品模組與服務方案，助你在 Google 及 AI 搜尋中取得策略優勢。" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="logo">YouFind AI SEO</div>
-    <div class="menu-toggle" id="menu-toggle" aria-label="開啟選單" role="button" tabindex="0">
-      <span></span>
-      <span></span>
-      <span></span>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-mark">YF</span><span class="logo-text">AIPO</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#why">為何重要</a>
+        <a href="#aipo-seo">SEO + AIPO</a>
+        <a href="#modules">產品模組</a>
+        <a href="#plans">服務方案</a>
+        <a href="#full-funnel">Full Funnel Growth</a>
+      </nav>
+      <a href="#cta" class="btn btn-outline">預約諮詢</a>
     </div>
-    <nav>
-      <ul id="nav-links">
-        <li><a href="#why-matters">為何這很重要</a></li>
-        <li><a href="#ai-overview">AI 總覽</a></li>
-        <li><a href="#seo-aipo">SEO AIPO</a></li>
-        <li><a href="#search-visibility">搜尋能見度雲</a></li>
-        <li><a href="#plans">方案與收費</a></li>
-        <li><a href="#full-funnel">全漏斗成長</a></li>
-        <li><a href="#blog">GEO 部落格</a></li>
-        <li><a href="#contact">聯絡我們</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <main>
-    <!-- 為何這很重要 -->
-    <section id="why-matters">
-      <h1>為何 AI 搜尋能見度這麼重要？</h1>
-      <p>
-        在 AI 主導的搜尋時代，品牌不只要在 Google 傳統搜尋結果出現，更要在
-        AI Overview、ChatGPT、Perplexity 等生成式搜尋答案中被看見，否則就算你在
-        SEO 排名不錯，依然會在 AI 回覆裡「消失」。
-      </p>
-      <p>
-        YouFind 的 GEO / AIPO 框架，協助企業把內容轉化為 AI 友善的結構化訊號，
-        在各種 AI 搜尋介面中維持穩定的曝光與權威敘事。
-      </p>
-    </section>
-
-    <!-- AI 總覽 -->
-    <section id="ai-overview">
-      <h2>Google AI Overview 簡介</h2>
-      <div class="video-container">
-        <!-- 這裡用示意影片 URL，你可以換成自己真正的影片嵌入 -->
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/DAG5Aggs3b0"
-          title="Google AI Overview 示意影片"
-          frameborder="0"
-          allowfullscreen>
-        </iframe>
+  <!-- Hero Section -->
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>在 Google 與 AI 搜尋，同步奪取「第一印象」與「最終答案」</h1>
+        <p>
+          YouFind AIPO Search Visibility Cloud，結合 SEO、AI 搜尋與 UMOT 數據，幫你在 Google 傳統搜尋與 AI 回答中，同步取得曝光、點擊與轉換優勢。
+        </p>
+        <div class="hero-cta">
+          <a href="#plans" class="btn btn-primary">查看 AIPO 服務方案</a>
+          <a href="#modules" class="btn btn-text">了解產品模組</a>
+        </div>
+        <ul class="hero-highlights">
+          <li>AI Visibility Scanner：檢測你在 Google AIO、ChatGPT、Perplexity 等平台的可見度</li>
+          <li>AIPO Content Factory：產出對 AI 友善的 FAQ、Comparison、Schema 結構內容</li>
+          <li>AIPO Score：量化品牌在 AI 答案中的覆蓋度與風險</li>
+          <li>UMOT AI：監測社群聲量、敘事角度與信任訊號</li>
+        </ul>
       </div>
-      <p>
-        AI Overview 將傳統 SEO 結果重新包裝成一段整合式的 AI 回應，引用不同網站的內容作為來源；
-        如果沒有針對 AI 結構化與敘事佈局，品牌就算有排名，也很容易被其他更「AI 就緒」的內容取代。
-      </p>
-      <p>
-        YouFind 會從關鍵查詢、Schema、FAQ、比較頁等角度，設計完整的 AI 搜尋能見度策略，
-        確保品牌在 AI 回應中獲得正確、突出且可被點擊的展示。
-      </p>
-    </section>
-
-    <!-- SEO AIPO -->
-    <section id="seo-aipo">
-      <h2>SEO AIPO：AI 搜尋優化新框架</h2>
-      <p>
-        AIPO（AI Platform Optimization）是延伸自傳統 SEO 的新一代框架，
-        不只看 Google 排名，更關注在各種 AI 平台（Google AI Overview、ChatGPT、
-        Perplexity、Bing Copilot 等）上的曝光、引用與敘事權。
-      </p>
-      <p>
-        我們會依據核心主題，規劃 FAQ 頁、比較頁、資料頁與部落格集群，配合結構化標記與
-        Topic Cluster，讓 AI 能夠更精準理解你的品牌定位與專業範疇。
-      </p>
-      <div class="image-container">
-        <!-- 示意圖片，可替換為實際設計圖 -->
-        <img
-          src="https://via.placeholder.com/800x400?text=SEO+AIPO+Illustration"
-          alt="SEO AIPO AI 搜尋示意圖" />
+      <div class="hero-visual">
+        <div class="hero-card">
+          <h3>AIPO Search Visibility Snapshot</h3>
+          <p>一眼看清你在 AI 搜尋生態中的位置，識別缺口與成長空間。</p>
+          <div class="hero-metrics">
+            <div class="metric">
+              <span class="metric-label">AI Visibility Score</span>
+              <span class="metric-value">76 / 100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Query Coverage</span>
+              <span class="metric-value">58%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Risk Alerts</span>
+              <span class="metric-value metric-value-bad">5</span>
+            </div>
+          </div>
+          <small class="hero-note">
+            支援：Google AIO、ChatGPT、Perplexity、Bing Copilot 等主流 AI 平台。
+          </small>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 搜尋能見度雲 -->
-    <section id="search-visibility">
+  <!-- Section 1: Why This Matters -->
+  <section class="section" id="why">
+    <div class="container section-grid">
+      <div>
+        <h2>為何「AI 搜尋可見度」現在就要佈局？</h2>
+        <p>到 2028 年，超過 30–50% 的查詢將由 AI 結果主導，傳統 SEO 只能觸及一部分決策旅程。</p>
+        <p>AIPO 將 SEO、AI 搜尋與內容架構整合，讓品牌在 Google 首頁與 AI 回答中，同時取得穩定位置。</p>
+      </div>
+      <div class="stats-cards">
+        <div class="stat-card"><span class="stat-value">62%</span><span class="stat-label">決策受到搜尋與 AI 影響</span></div>
+        <div class="stat-card"><span class="stat-value">18–70</span><span class="stat-label">平均查詢步驟，涵蓋 SEO 與 AI</span></div>
+        <div class="stat-card"><span class="stat-value">50%</span><span class="stat-label">以上預算將流向 AI 搜尋優化</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: SEO + AIPO -->
+  <section class="section section-alt" id="aipo-seo">
+    <div class="container section-grid">
+      <div>
+        <h2>從 SEO 延伸到 AIPO：一套語言，兩個戰場</h2>
+        <p>傳統 SEO 解決的是關鍵字排名與自然流量，而 AIPO 進一步確保這些內容被 AI 模型理解、收錄並在 AI 回答中優先引用。</p>
+        <ul class="checklist">
+          <li>FAQ、Comparison、Data Page、Topic Cluster 架構優化</li>
+          <li>Schema、FAQPage、QAPage、Product 等結構化標記</li>
+          <li>AIO-friendly 內容格式，提升 AI 抽取與引用機率</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3>AI Search Journey 示意</h3>
+        <ol class="number-list">
+          <li>使用者在 Google 搜尋關鍵字，進入你現有的 SEO 內容。</li>
+          <li>同一批使用者轉往 ChatGPT、Perplexity 詢問「哪一間最好？」。</li>
+          <li>若 AI 回答中缺少你的品牌，你將在關鍵決策瞬間「隱形」。</li>
+          <li>AIPO 透過內容結構與訊號布署，把你帶回 AI 答案裡。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: YouFind Search Visibility Cloud Overview (Brief) -->
+  <section class="section" id="svc">
+    <div class="container">
       <h2>YouFind Search Visibility Cloud</h2>
       <p>
-        Search Visibility Cloud 是 YouFind 的搜尋能見度雲端平台，整合超過 20 組
-        SEO 與第三方數據資產，從關鍵字、排名、AI 回應引用來源到第三方口碑訊號，
-        一站式呈現你的「搜尋與 AI 能見度」全貌。
+        Search Visibility Cloud 是 YouFind 為 AI 搜尋時代打造的一體化平台，結合 20+ 年 SEO 經驗與第三方數據資產，協助你管理從 Zero Moment of Truth 到 Ultimate Moment of Truth 的全旅程搜尋可見度。
       </p>
-      <p>
-        透過 AIPO Score 與 Query Engine，你可以清楚看到品牌在不同查詢、不同平台、
-        不同階段（ZMOT、UMOT）下的表現，並獲得具體的優化建議。
-      </p>
-    </section>
+    </div>
+  </section>
 
-    <!-- 方案與收費 -->
-    <section id="plans">
-      <h2>方案與收費</h2>
-      <div class="plans">
-        <div class="plan">
-          <h3>方案一：Pure AIPO</h3>
-          <ul>
-            <li>AIO / AI 能見度稽核</li>
-            <li>10–20 組核心 FAQ 與查詢群組規劃</li>
-            <li>AI 可爬行度與 Schema 檢查</li>
-            <li>AI Overview 追蹤與報告</li>
+  <!-- Section 4: 產品模組（Modules） -->
+  <section class="section section-alt" id="modules">
+    <div class="container">
+      <h2>Section 4｜產品模組（Modules）</h2>
+      <p class="section-intro">YouFind AIPO Search Visibility Cloud 分為 4 大核心模組，可按需要獨立採用或組合為一套完整解決方案。</p>
+
+      <div class="module-grid">
+        <article class="module-card">
+          <h3>1｜AI Visibility Scanner</h3>
+          <p>針對 Google AIO、ChatGPT、Perplexity、Bing Copilot 等平台，掃描品牌在關鍵查詢中的曝光、來源歸因與風險警示。</p>
+          <ul class="module-list">
+            <li>AI Query Coverage：覆蓋度、缺口與優先級排序</li>
+            <li>AI Source Attribution：AI 回答引用了哪些網站與內容</li>
+            <li>Risk Detection：錯誤資訊、過時內容與品牌風險標記</li>
+            <li>Cross-channel 對比：SEO 排名 vs AI 回答缺口</li>
           </ul>
-          <button>了解 Pure AIPO</button>
-        </div>
-
-        <div class="plan">
-          <h3>方案二：On-going AIPO</h3>
-          <ul>
-            <li>持續 6–12 個月 AI 搜尋優化</li>
-            <li>20–40 組 FAQ / 查詢群組擴展</li>
-            <li>AI Recommendation 與 Schema 持續優化</li>
-            <li>定期 Benchmark 與競品差距分析</li>
-          </ul>
-          <button>了解 On-going AIPO</button>
-        </div>
-
-        <div class="plan">
-          <h3>方案三：SEO + AIPO</h3>
-          <ul>
-            <li>完整 SEO + AIPO 雙軌策略</li>
-            <li>Topic Cluster 建構與舊內容重寫</li>
-            <li>排名與 AI 能見度雙 KPI 追蹤</li>
-            <li>持續內容刷新與成長報告</li>
-          </ul>
-          <button>了解 SEO + AIPO</button>
-        </div>
-
-        <div class="plan">
-          <h3>方案四：SEO + AIPO + UMOT</h3>
-          <ul>
-            <li>從 Zero Moment 到 Ultimate Moment 全漏斗布局</li>
-            <li>社群聲量與公共關注議題監測</li>
-            <li>敘事角度設計與信任訊號佈局</li>
-            <li>第三方平台與口碑分發管理</li>
-          </ul>
-          <button>了解 Full Funnel</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 全漏斗成長 -->
-    <section id="full-funnel">
-      <h2>Full Funnel Growth：全漏斗成長引擎</h2>
-      <p>
-        YouFind 將 Paid Media、SEO、AIPO 與 UMOT 結合，從搜尋觸發、
-        評估比較、決策轉換，到購買後的口碑與再行銷，建立一條完整的
-        Full Funnel Growth Engine。
-      </p>
-      <p>
-        透過年對年的成效承諾（例如曝光、點擊、轉換與 AI 能見度成長），
-        讓行銷預算在 AI 搜尋時代不只「被看見」，更能驅動實際生意成果。
-      </p>
-    </section>
-
-    <!-- GEO Blog 區 -->
-    <section id="blog">
-      <h2>GEO 部落格</h2>
-      <div class="blog-posts">
-        <article class="post">
-          <h3>GEO 是什麼？為何在 AI 時代更關鍵？</h3>
-          <p>
-            GEO（Search & AI Visibility for GEO Keywords）強調以「地標、品牌、品類」
-            等關鍵詞為主軸，確保你的品牌在使用者所有與地理、品類相關的查詢——
-            包括 AI 聊天與 AI Overview 裡——都能被正確提及與引用。
-          </p>
+          <div class="module-meta">
+            <span class="tag">SaaS 模組</span>
+            <span class="price">適合：內部 SEO / 數據團隊</span>
+          </div>
         </article>
 
-        <article class="post">
-          <h3>案例：排名第 2，卻在 AI 回覆中消失</h3>
-          <p>
-            以「mba hk」為例，即使某商學院在 Google 自然排序中名列前茅，但當使用者在
-            Perplexity 問「香港最好的商學院是什麼？」時，AI 回覆只列出其他院校，
-            該品牌完全沒有出現在答案裡。
-          </p>
+        <article class="module-card">
+          <h3>2｜AIPO Content Factory</h3>
+          <p>將關鍵查詢轉化為可被 AI 快速理解與引用的內容資產，包含 FAQ、Comparison Page、Data Page 與 Topic Cluster 等結構。</p>
+          <ul class="module-list">
+            <li>FAQ & QAPage：針對高 Intent 問題設計 AI 友善答覆</li>
+            <li>Comparison & Data Pages：表格、清單與圖表式內容</li>
+            <li>Topic Cluster：主題集群與內容內部連結策略</li>
+            <li>Schema 與 AIO-friendly 結構化內容模板</li>
+          </ul>
+          <div class="module-meta">
+            <span class="tag">SaaS + 專案服務</span>
+            <span class="price">適合：內容 / 品牌 / 產品團隊</span>
+          </div>
         </article>
 
-        <article class="post">
-          <h3>從 SEO 到 AIPO：你的內容準備好了嗎？</h3>
-          <p>
-            傳統 SEO 重視頁面與關鍵字；AIPO 則把重心拉到「查詢意圖、敘事與結構化數據」，
-            讓 AI 願意且能夠引用你的內容。這需要從內容架構到技術實作的全面調整。
-          </p>
+        <article class="module-card">
+          <h3>3｜AIPO Score</h3>
+          <p>將 AI 搜尋表現量化為單一分數，持續追蹤 Query Coverage、Schema 完整度、品牌提及與競品對標。</p>
+          <ul class="module-list">
+            <li>AI Visibility Score：以 Query、Channel、Brand 維度評分</li>
+            <li>Schema Health：結構化數據的覆蓋率與錯誤狀態</li>
+            <li>Benchmark 與 Ranking：與競品或行業基準比較</li>
+            <li>預警儀表板：AI 回答異常與風險通知</li>
+          </ul>
+          <div class="module-meta">
+            <span class="tag">SaaS 模組</span>
+            <span class="price">適合：管理層 / 地區總部</span>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <h3>4｜UMOT AI（Ultimate Moment of Truth）</h3>
+          <p>聚焦最後決策瞬間的敘事與信任管理，連結社群聲量、口碑平台與官方內容，提升轉化率與品牌信任。</p>
+          <ul class="module-list">
+            <li>Social Buzz Monitoring：追蹤社群對品牌與議題的即時反應</li>
+            <li>Public Concerns Mining：萃取常見疑慮與反對點，回饋內容策略</li>
+            <li>Narrative Signals：整理評論、專家文章與第三方推薦訊號</li>
+            <li>AIO Recommendation：針對 UMOT 佈局提出 AI 內容建議</li>
+          </ul>
+          <div class="module-meta">
+            <span class="tag">SaaS + 顧問服務</span>
+            <span class="price">適合：品牌 / 公關 / CX 團隊</span>
+          </div>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 聯絡我們 -->
-    <section id="contact">
-      <h2>聯絡我們</h2>
-      <p>如需了解 GEO / AIPO 或客製方案，歡迎直接與我們聯繫：</p>
-      <p>Email：<a href="mailto:sales@youfind.com">sales@youfind.com</a></p>
-      <p>電話：+852 0000 0000（示意）</p>
-      <p>地址：香港 ·（此處可填寫實際公司地址）</p>
-    </section>
-  </main>
+  <!-- Section 5: 服務方案（Plans） -->
+  <section class="section" id="plans">
+    <div class="container">
+      <h2>Section 5｜服務方案（產品化套裝 Plans）</h2>
+      <p class="section-intro">
+        根據不同成熟度與資源配置，YouFind 提供 4 種 AIPO 產品化套裝，從純 SaaS 掃描到 Full Funnel 搜尋成長，均可按季度或年度訂閱。
+      </p>
 
-  <footer>
-    <p>© 2025 YouFind GEO / AIPO Search Visibility | <a href="#contact">聯絡我們</a></p>
+      <div class="plans-grid">
+        <article class="plan-card">
+          <h3>Plan 1｜Pure AIPO</h3>
+          <p class="plan-target">適合：剛開始探索 AI 搜尋可見度的品牌</p>
+          <ul class="plan-list">
+            <li>AIO Audit：一次性 AI 搜尋全盤掃描報告</li>
+            <li>10–20 條高 Intent FAQ 規劃與建議</li>
+            <li>AI Crawlability 檢測與優化建議</li>
+            <li>Schema 基礎實作建議（FAQ / QAPage / Product）</li>
+            <li>AIO Tracking：核心查詢的 AI 能見度追蹤</li>
+          </ul>
+          <div class="plan-footer">
+            <span class="plan-type">SaaS 為主，專家顧問陪跑</span>
+            <a href="#cta" class="btn btn-primary btn-full">索取方案簡報</a>
+          </div>
+        </article>
+
+        <article class="plan-card">
+          <h3>Plan 2｜On‑Going AIPO</h3>
+          <p class="plan-target">適合：已具備 SEO 基礎，希望持續優化 AI 能見度</p>
+          <ul class="plan-list">
+            <li>每季 6–12 項 AIO Deliverables（FAQ / Comparison / Data Pages）</li>
+            <li>20–40 條 FAQ 與 Query Group 規劃與落地</li>
+            <li>AIO Recommendation Tracking：追蹤建議落實與成效</li>
+            <li>Schema 遞進式優化與錯誤修正</li>
+            <li>季度 Benchmark Report：與競品 / 行業對標</li>
+          </ul>
+          <div class="plan-footer">
+            <span class="plan-type">SaaS + 內容與技術顧問</span>
+            <a href="#cta" class="btn btn-primary btn-full">安排方案諮詢</a>
+          </div>
+        </article>
+
+        <article class="plan-card plan-card-featured">
+          <div class="plan-label">熱門</div>
+          <h3>Plan 3｜SEO + AIPO Search AI</h3>
+          <p class="plan-target">適合：需要同時拉升 SEO 排名與 AI 可見度的成長型品牌</p>
+          <ul class="plan-list">
+            <li>Full SEO：網站結構、內容與技術 SEO 全面優化</li>
+            <li>Full AIPO：結合 AI Visibility Scanner、Content Factory 與 AIPO Score</li>
+            <li>Topic Cluster 103：關鍵主題集群規劃與落地</li>
+            <li>Content Refresh：既有內容 AI 化與更新策略</li>
+            <li>Ranking Growth + AI Visibility Growth 雙軌 KPI</li>
+          </ul>
+          <div class="plan-footer">
+            <span class="plan-type">一站式 SEO + AIPO 增長方案</span>
+            <a href="#cta" class="btn btn-primary btn-full">索取詳細規格</a>
+          </div>
+        </article>
+
+        <article class="plan-card">
+          <h3>Plan 4｜SEO + AIPO + UMOT</h3>
+          <p class="plan-target">適合：重視聲譽與全漏斗轉化的領先品牌</p>
+          <ul class="plan-list">
+            <li>Full Funnel Search Visibility：從搜尋到 UMOT 的全旅程佈局</li>
+            <li>Narrative Management：管理關鍵議題與品牌敘事</li>
+            <li>Reputation & Trust Signals：第三方平台口碑與信任訊號佈署</li>
+            <li>Third‑party Signal Distribution：Google Business、Reddit、Quora、Medium 等</li>
+            <li>CXO Briefing：為管理層設計的 AI SEO Reputation 監控報告</li>
+          </ul>
+          <div class="plan-footer">
+            <span class="plan-type">策略顧問 + 平台 + 執行落地</span>
+            <a href="#cta" class="btn btn-primary btn-full">預約 CXO Briefing</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Full Funnel Growth -->
+  <section class="section section-alt" id="full-funnel">
+    <div class="container section-grid">
+      <div>
+        <h2>Full Funnel Growth：從曝光到 Ultimate Moment of Truth</h2>
+        <p>YouFind 將 Paid Media、SEO、AIPO 與 UMOT 串連成一套 Full Funnel Growth 架構，以 YoY 成長為核心指標，而非單一流量或點擊數字。</p>
+        <ul class="checklist">
+          <li>Google / Meta Ads：精準導流與再行銷</li>
+          <li>SEO & AIPO：自然搜尋與 AI 搜尋雙軌優化</li>
+          <li>UMOT AI：敘事與聲譽驅動的轉化率提升</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3>Full Funnel Query Strategy</h3>
+        <p>7–10 組核心 Query Group，覆蓋：</p>
+        <ul class="module-list">
+          <li>上游認知：問題導向與教育型關鍵字</li>
+          <li>中游評估：比較、評價與方案導向關鍵字</li>
+          <li>底層轉化：品牌 + 產品 + 價格 + 評價關鍵字</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section" id="cta">
+    <div class="container cta-container">
+      <div>
+        <h2>想知道你的品牌在 AI 搜尋裡「可不可見」？</h2>
+        <p>留下聯絡資料，我們會為你準備一份簡短的 AIPO Search Visibility Snapshot，包含 7–10 組關鍵查詢的 AI 曝光概況。</p>
+      </div>
+      <form class="cta-form">
+        <div class="form-row">
+          <input type="text" placeholder="公司名稱" required/>
+          <input type="text" placeholder="姓名" required/>
+        </div>
+        <div class="form-row">
+          <input type="email" placeholder="公司電郵" required/>
+          <input type="text" placeholder="電話 / WhatsApp" required/>
+        </div>
+        <textarea rows="3" placeholder="請簡單描述你的行業、目標市場與目前 SEO / AI 搜尋情況" required></textarea>
+        <button type="submit" class="btn btn-primary">提交並索取 Snapshot</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo footer-logo">
+          <span class="logo-mark">YF</span><span class="logo-text">AIPO</span>
+        </div>
+        <p class="footer-text">
+          YouFind AIPO Search Visibility Cloud｜結合 SEO、AI 搜尋與 Full Funnel Growth，為品牌打造 AI 時代的搜尋防禦與成長引擎。
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <a href="#modules">AIPO Modules</a>
+        <a href="#plans">AIPO Plans</a>
+        <a href="#full-funnel">Full Funnel Growth</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">關於 YouFind</a>
+        <a href="#">成功案例</a>
+        <a href="#">Blog（GEO / AIPO）</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#cta">預約諮詢</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© YouFind Ltd. All rights reserved.</span>
+      <span>Google Certified Partner</span>
+    </div>
   </footer>
 
-  <script>
-    // 手機版選單切換
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
+  <script src="script.js"></script>
 
-    menuToggle.addEventListener('click', function () {
-      navLinks.classList.toggle('show');
-    });
-
-    // 點選連結後收起選單（手機）
-    navLinks.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        navLinks.classList.remove('show');
-      }
-    });
-  </script>
 </body>
 </html>
